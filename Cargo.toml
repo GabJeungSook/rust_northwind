@@ -1,0 +1,15 @@
+[package]
+name = "sample-app"
+version = "0.1.0"
+authors = ["Gabriel Jon Icawalo <67619600+GabJeungSook@users.noreply.github.com>"]
+edition = "2021"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+slint = "1.5"
+mysql = "*"
+
+[build-dependencies]
+slint-build = "1.5"

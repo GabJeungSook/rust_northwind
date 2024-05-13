@@ -1,0 +1,191 @@
+import { Button, VerticalBox, HorizontalBox, LineEdit,GridBox } from "std-widgets.slint";
+import { ComboBox } from "std-widgets.slint";
+import { StandardTableView } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in property <[string]> customerIds: [];
+
+
+    width: 1600px;
+    height: 700px;
+    title: "Northwind Database";
+    GridLayout {
+        Row {
+        GridBox {
+            Row {
+                GridLayout {
+                    Row{
+                       GridBox {
+                        Row {
+                            Text {
+                                text: "Customer Name :";
+                                horizontal-alignment: left;
+                                vertical-alignment: center;
+                                font-size: 12px;
+                                font-weight: 10;
+                            }
+                            LineEdit { 
+                                enabled: false;
+                            }
+                        }
+                        Row {
+                            Text {
+                                text: "Company Name :";
+                                horizontal-alignment: left;
+                                vertical-alignment: center;
+                                font-size: 12px;
+                                font-weight: 10;
+                            }
+                            LineEdit { 
+                                enabled: false;
+                            }
+                        }
+                        Row {
+                            Text {
+                                text: "City :";
+                                horizontal-alignment: left;
+                                vertical-alignment: center;
+                                font-size: 12px;
+                                font-weight: 10;
+                            }
+                            LineEdit { 
+                                enabled: false;
+                            }
+                        }
+                        Row {
+                            Text {
+                                text: "Customer ID : ";
+                                horizontal-alignment: left;
+                                vertical-alignment: center;
+                                font-size: 12px;
+                                font-weight: 10;
+                            }
+                            
+                            ComboBox {
+                                
+                                model: root.customerIds;
+                                // model: ["first", "second", "third"];
+                                current-value: "Select Customer ID";
+                            }
+                        }
+                       }
+                    }
+                    Row{
+                        StandardTableView {
+                            width: 550px;
+                            height: 200px;
+                            columns: [
+                                { title: "Order ID" },
+                                { title: "Order Date" },
+                                { title: "Ship Country" },
+                                { title: "Ship City" },
+                                
+                            ];
+                            rows: [
+                                [
+                                    { text: "Item 1" }, 
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                ],
+                                [
+                                    { text: "Item 1" }, 
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                ],
+                                [
+                                    { text: "Item 1" }, 
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                    { text: "Item 2" },
+                                ]
+                            ];
+                        }
+                    }
+                    Row{
+                        Text {
+                            text: "No Item Selected";
+                            horizontal-alignment: left;
+                            font-size: 20px;
+                            font-weight: 20;
+                        }
+                    }
+                  
+                }
+                VerticalBox {
+                    StandardTableView {
+                        
+                        width: 1000px;
+                        height: 240px;
+                        columns: [
+                            { title: "Product ID" },
+                            { title: "Unit Price" },
+                            { title: "Quantity" },
+                            { title: "% Discount" },
+                            { title: "Amount" },
+                            { title: "Total Discount" },
+                            { title: "Discounted Value" },
+                        ];
+                        rows: [
+                            [
+                                { text: "Item 1" }, 
+                                { text: "Item 2" }, 
+                                { text: "Item 3" },
+                                { text: "Item 4" }, 
+                                { text: "Item 5" },
+                                { text: "Item 6" }, 
+                                { text: "Item 7" },
+                            ],
+                            [
+                                { text: "Item 1" }, 
+                                { text: "Item 2" }, 
+                                { text: "Item 3" },
+                                { text: "Item 4" }, 
+                                { text: "Item 5" },
+                                { text: "Item 6" }, 
+                                { text: "Item 7" },
+                            ],
+                            [
+                                { text: "Item 1" }, 
+                                { text: "Item 2" }, 
+                                { text: "Item 3" },
+                                { text: "Item 4" }, 
+                                { text: "Item 5" },
+                                { text: "Item 6" }, 
+                                { text: "Item 7" },
+                            ]
+                        ];
+                    }
+                    VerticalBox {
+                        height: 100px;
+                        GridBox {
+                            height: 50px;
+                            Row {
+                                LineEdit { 
+                                    enabled: false;
+                                }
+                                LineEdit { 
+                                    enabled: false;
+                                }
+                                LineEdit { 
+                                    enabled: false;
+                                }
+                            }
+                            
+                           
+                        }
+                        Text {
+                            text: "No Item Selected";
+                            horizontal-alignment: left;
+                            font-size: 20px;
+                            font-weight: 20;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+}
